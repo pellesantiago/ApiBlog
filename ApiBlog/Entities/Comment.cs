@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace ApiBlog.Entities
+namespace ApiBlog.Repository.Entities
 {
     public class Comment
     {
@@ -13,7 +10,10 @@ namespace ApiBlog.Entities
 
         public DateTime Created { get; set; }
 
-        public int ArticuleId { get; set; }
-        public Articule Articule { get; set; }
+        public int ArticleId { get; set; }
+        public Article Article { get; set; }
+
+        public int UserId { get; set; }
+        public User User { get; set; }
     }
 }

@@ -1,21 +1,18 @@
-﻿using ApiBlog.Entities;
+﻿using ApiBlog.Repository.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace ApiBlog.EntityConfigurations
+namespace ApiBlog.Repository.EntityConfigurations
 {
     public class UserConfiguration : IEntityTypeConfiguration<User>
     {
         public void Configure(EntityTypeBuilder<User> builder) {
-            builder.HasKey(_ => _.UserId);
-            builder.Property(_ => _.Names).IsRequired();
-            builder.Property(_ => _.Surnames).IsRequired();
-            builder.Property(_ => _.Email).IsRequired();
-            builder.Property(_ => _.Password).IsRequired();
+            builder.HasKey(u => u.UserId);
+
+            builder.Property(u =>u.Names).IsRequired();
+            builder.Property(u => u.Surnames).IsRequired();
+            builder.Property(u => u.Email).IsRequired();
+            builder.Property(u => u.Password).IsRequired();
         }
     }
 }

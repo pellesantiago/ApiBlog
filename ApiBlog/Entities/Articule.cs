@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace ApiBlog.Entities
+namespace ApiBlog.Repository.Entities
 {
-    public class Articule
+    public class Article
     {
-        public int ArticuleId { get; set; }
+        public int ArticleId { get; set; }
 
         public string Title { get; set; }
 
