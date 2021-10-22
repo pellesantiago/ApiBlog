@@ -24,6 +24,6 @@ namespace ApiBlog.Entities
 
         public int StatusUser { get; set; }
 
-        public byte[] Image { get; set; }
+        public ICollection<Articule> Articules { get; set; }
     }
 }

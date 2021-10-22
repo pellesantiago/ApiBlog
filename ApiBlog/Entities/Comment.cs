@@ -13,10 +13,7 @@ namespace ApiBlog.Entities
 
         public DateTime Created { get; set; }
 
-        //foreignKey
-        public User User { get; set; }
-
-        //foreignKey
+        public int ArticuleId { get; set; }
         public Articule Articule { get; set; }
     }
 }
