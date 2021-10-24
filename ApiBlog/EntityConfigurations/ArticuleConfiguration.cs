@@ -1,24 +1,19 @@
-﻿using ApiBlog.Entities;
+﻿using ApiBlog.Repository.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace ApiBlog.EntityConfigurations
+namespace ApiBlog.Repository.EntityConfigurations
 {
-    public class ArticuleConfiguration : IEntityTypeConfiguration<Articule>
+    public class ArticleConfiguration : IEntityTypeConfiguration<Article>
     {
-        public void Configure(EntityTypeBuilder<Articule> builder) {
-            builder.HasKey(_ => _.ArticuleId);
-            builder.Property(_ => _.Content).IsRequired();
-            builder.Property(_ => _.Keyword).IsRequired();
-            builder.Property(_ => _.Title).IsRequired();
-            builder
-                .HasOne(_ => _.User)
-                .WithMany(_ => _.Articules)
-                .HasForeignKey(_ => _.UserId);
+        public void Configure(EntityTypeBuilder<Article> builder) {
+            builder.HasKey(a => a.ArticleId);
+            builder.Property(a => a.Content).IsRequired();
+            builder.Property(a => a.Keyword).IsRequired();
+            builder.Property(a => a.Title).IsRequired();
+
+            builder.HasOne(a => a.User).WithMany(u => u.Articles).HasForeignKey(a => a.UserId).OnDelete(DeleteBehavior.Restrict);
+            builder.HasMany(a => a.Comments).WithOne(c => c.Article).HasForeignKey(a => a.ArticleId);
         }
     }
 }

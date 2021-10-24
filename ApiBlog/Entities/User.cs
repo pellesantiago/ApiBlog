@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace ApiBlog.Entities
+namespace ApiBlog.Repository.Entities
 {
     public class User
     {
@@ -24,6 +21,7 @@ namespace ApiBlog.Entities
 
         public int StatusUser { get; set; }
 
-        public ICollection<Articule> Articules { get; set; }
+        public ICollection<Article> Articles { get; set; }
+        public ICollection<Comment> Comments { get; set; }
     }
 }
